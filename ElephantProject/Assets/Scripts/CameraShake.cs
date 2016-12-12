@@ -11,9 +11,9 @@ public class CameraShake : MonoBehaviour {
     [SerializeField] private float shakeDuration = 0f;
 
     // Amplitude of the shake. A larger value shakes the camera harder.
-    [Header("Hoi Pim")]
-    [Space(100)]
-    [Tooltip("Hoi Pim HOU JE BEK")]
+    [Header("Test")]
+    [Space(10)]
+    [Tooltip("Test")]
     [Range(0,1)]
     [SerializeField] private float shakeAmount = 0.7f;
 
