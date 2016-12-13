@@ -10,13 +10,12 @@ public class CameraShake : MonoBehaviour {
     // How long the object should shake for.
     [SerializeField] private float shakeDuration = 0f;
 
-    // Amplitude of the shake. A larger value shakes the camera harder.
     [Header("Test")]
     [Space(10)]
     [Tooltip("Test")]
     [Range(0,1)]
+    // Amplitude of the shake. A larger value shakes the camera harder.
     [SerializeField] private float shakeAmount = 0.7f;
-
 
     [SerializeField] private float decreaseFactor = 1.0f;
 
@@ -49,4 +48,5 @@ public class CameraShake : MonoBehaviour {
             camTransform.localPosition = originalPos;
         }
     }
+
 }
