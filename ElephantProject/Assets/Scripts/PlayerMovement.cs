@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerMovement : MonoBehaviour
-{
+public class PlayerMovement : MonoBehaviour{
 
     public float speed = 3.0F;
     public float rotateSpeed = 3.0F;
@@ -11,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         transform.Rotate(0, InputManager.MainHorizontal() * rotateSpeed, 0);
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
+        Vector3 forward = transform.TransformDirection(-Vector3.forward);
 
         float curSpeed = speed * InputManager.MainVertical();
         controller.SimpleMove(forward * curSpeed);
