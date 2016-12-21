@@ -3,43 +3,28 @@ using System.Collections;
 
 public class TargetFollower: MonoBehaviour {
 
-	[SerializeField] private GameObject target;
+    [SerializeField]
+    private GameObject target;
 
-	//private Vector3 offset;
+    [SerializeField]
+    private float delay = 0.8f;
 
-    [SerializeField] float xOffset;
-    [SerializeField] float yOffset;
-    [SerializeField] float zOffset;
+    [SerializeField]
+    private float height, trackDistance;
 
-    void Start()
-	{
-		//offset = target.position - transform.position;
-	}
-
-    public void Cheetah()
+    void FixedUpdate()
     {
-        //this.transform.position = target.position - offset;
-        xOffset = 1;
-        yOffset = 1;
-        zOffset = 1;
+        Track(target);
 
     }
 
-    public void Elephant()
+    void Track(GameObject trackTarget)
     {
-        //this.transform.position = target.position - offset;
-        xOffset = 1;
-        yOffset = 1;
-        zOffset = 1;
+        Vector3 moveCam = trackTarget.transform.position - trackTarget.transform.forward * trackDistance + Vector3.up * height;
+
+        transform.LookAt(trackTarget.transform);
+        transform.position = transform.position * delay + moveCam * (1f - delay);
+
     }
 
-    void LateUpdate()
-    {
-        Elephant();
-        //Cheetah();
-
-        this.transform.position = new Vector3(target.transform.position.x + xOffset,
-                                              target.transform.position.y + yOffset,
-                                              target.transform.position.z + zOffset);
-    }
 }
